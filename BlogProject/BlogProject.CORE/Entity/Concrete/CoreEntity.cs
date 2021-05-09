@@ -17,9 +17,9 @@ namespace BlogProject.CORE.Concrete
         public string CreatedComputerName { get; set; }
         public string CreatedIP { get; set; }
 
-        public DateTime? ModifiedCreatedDate { get; set; }
-        public string ModifiedCreatedComputerName { get; set; }
-        public string ModifiedCreatedIP { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public string ModifiedComputerName { get; set; }
+        public string ModifiedIP { get; set; }
 
 
     }
