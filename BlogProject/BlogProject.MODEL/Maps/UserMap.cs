@@ -16,6 +16,8 @@ namespace BlogProject.MODEL.Maps
             builder.ToTable("Users");
             builder.Property(x => x.FirstName).HasMaxLength(100).IsRequired(true);
 
+            // TODO: Tüm mappingler yapmalı. Diğer Entity'ler için de. :))))))))
+
             // Burada Kalacak
             base.Configure(builder);
         }
