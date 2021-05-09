@@ -14,6 +14,8 @@ namespace BlogProject.MODEL.Maps
         public override void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("Users");
+            builder.Property(x => x.FirstName).HasMaxLength(100).IsRequired(true);
+
             // Burada Kalacak
             base.Configure(builder);
         }
