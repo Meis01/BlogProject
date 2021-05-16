@@ -1,5 +1,6 @@
 ﻿using BlogProject.CORE.Entity.Map;
 using BlogProject.MODEL.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace BlogProject.MODEL.Maps
 {
-    class CategoryMap : CoreMap<Category>
+   public class CategoryMap : CoreMap<Category>
     {
         public override void Configure(EntityTypeBuilder<Category> builder)
         {
