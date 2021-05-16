@@ -14,6 +14,14 @@ namespace BlogProject.MODEL.Maps
         {
             builder.ToTable("Comments");
             builder.Property(x => x.CommentText).HasMaxLength(255).IsRequired(true);
+            //builder.HasOne(x => x.User)
+            //    .WithMany(x => x.Comments)
+            //    .HasForeignKey(s => s.UserID);
+         
+
+
+
+
 
             // 
             base.Configure(builder);

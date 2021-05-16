@@ -11,6 +11,10 @@ namespace BlogProject.MODEL.Context
 {
    public class BlogContext : DbContext
     {
+        public BlogContext()
+        {
+
+        }
         public BlogContext(DbContextOptions<BlogContext> options) : base(options)
         {
 
@@ -23,6 +27,13 @@ namespace BlogProject.MODEL.Context
             modelBuilder.ApplyConfiguration(new UserMap());
 
             base.OnModelCreating(modelBuilder);
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("server=MOHANNADBA\\SQL2017; database=BlogDb; uid=sa; pwd=ba12345;");
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+            base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
