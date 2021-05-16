@@ -17,8 +17,15 @@ namespace BlogProject.MODEL.Maps
             builder.Property(x => x.FirstName).HasMaxLength(100).IsRequired(true);
 
             // TODO: Tüm mappingler yapmalı. Diğer Entity'ler için de. :))))))))
-
-            // Burada Kalacak
+            builder.Property(x => x.LastName).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.Title).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.ImageURL).HasMaxLength(255).IsRequired(false);
+            builder.Property(x => x.EmailAddress).HasMaxLength(255).IsRequired(true);
+            builder.Property(x => x.Password).HasMaxLength(1000).IsRequired(true);
+            builder.Property(x => x.LastLogin).IsRequired(false);
+            builder.Property(x => x.LastIPAddress).HasMaxLength(24).IsRequired(false);
+            builder.Property(x => x.IsAdmin).IsRequired(true);
+            // 
             base.Configure(builder);
         }
     }

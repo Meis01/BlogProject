@@ -11,5 +11,8 @@ namespace BlogProject.MODEL.Entities
         public string Description { get; set; }
 
         //Navigation Property
+
+        //Kategorilerin Post's
+        public virtual List<Post> Posts { get; set; }
     }
 }

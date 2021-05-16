@@ -14,6 +14,11 @@ namespace BlogProject.MODEL.Entities
 
 
         //Navigation property
+        //Comment'in User'ı
+        public virtual User User { get; set; }
+        //Comment'in Post'u
+
+        public virtual Post Post { get; set; }
 
 
     }

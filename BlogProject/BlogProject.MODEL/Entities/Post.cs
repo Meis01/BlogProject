@@ -17,6 +17,11 @@ namespace BlogProject.MODEL.Entities
         public Guid UserID { get; set; }
 
         //Navigation property
-
+        //Post'un Kategorisi
+        public virtual Category Category { get; set; }
+        //Post'un User'i
+        public virtual User User { get; set; }
+        //Post'un Comment'leri
+        public virtual List<Comment> Comments { get; set; }
     }
 }

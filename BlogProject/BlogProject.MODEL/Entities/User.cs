@@ -20,5 +20,9 @@ namespace BlogProject.MODEL.Entities
         public bool IsAdmin { get; set; }
 
         //Navigation Properties
+        //User'ın postlar'ı
+        public virtual List<Post> Posts { get; set; }
+        //User'ın Commentler'i
+        public virtual List<Comment> Comments { get; set; }
     }
 }
