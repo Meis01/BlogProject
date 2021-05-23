@@ -12,6 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
+using BlogProject.CORE.Entity.Service;
+using BlogProject.SERVICE.Base;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BlogProject.WEBUI
 {
@@ -33,14 +36,18 @@ namespace BlogProject.WEBUI
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddScoped(typeof( ICoreService<>),typeof(BaseService<>));
             services.AddDbContext<BlogContext>(options =>
             {
               
             });
             services.AddControllersWithViews();
-           // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-          //  MvcOptions.EnableEndPointRouting = false;
+            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            //  MvcOptions.EnableEndPointRouting = false;
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +63,7 @@ namespace BlogProject.WEBUI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

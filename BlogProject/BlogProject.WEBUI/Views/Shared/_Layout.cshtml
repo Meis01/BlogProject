@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="tr">
+
 <head>
 
     <meta charset="utf-8">
@@ -11,13 +12,12 @@
     <title>Stand CSS Blog by TemplateMo</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="~/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="template/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="template/assets/css/templatemo-stand-blog.css">
-    <link rel="stylesheet" href="template/assets/css/owl.css">
+    <link rel="stylesheet" href="~/template/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/template/assets/css/templatemo-stand-blog.css">
+    <link rel="stylesheet" href="~/template/assets/css/owl.css">
     <!--
 
     TemplateMo 551 Stand Blog
@@ -26,70 +26,72 @@
 
     -->
 </head>
+
 <body>
 
-
-
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @RenderSection("Scripts", required: false)
-    <header class="">
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    <header class="mb-4" style="position:absolute !important; top:0px;">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+                <a class="navbar-brand" href="~/Home/Index"><h2>BA Blog<em>.</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
-                                Home
+                            <a class="nav-link" href="~/Home/Index">
+                                Anasayfa
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
+                            <a class="nav-link" href="~/Post/Index">Tüm Yazılar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog Entries</a>
+                            <a class="nav-link" href="~/Home/AboutUs">Hakkımızda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="post-details.html">Post Details</a>
+                            <a class="nav-link" href="~/Home/Contact">İletişim</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
+                        @* TODOOOOOO : Kullanıcı giriş yapmış mı kontrol et *@
+                        @if (true)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Account/Login">Giriş Yap</a>
+                                @*<a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Login">Giriş Yap</a>*@
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Account/Login">Çıkış Yap</a>
+                                @*<a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Login">Giriş Yap</a>*@
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
-        <partial name="PartialViews/_BannerPartial" />
+        @*<partial name="PartialViews/_BannerPartial" />*@
+        @*@Html.RenderPartialAsync("/PartialViews/_BannerPartial")*@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
 
     <footer>
         <div class="container">
@@ -106,9 +108,7 @@
                 <div class="col-lg-12">
                     <div class="copyright-text">
                         <p>
-                            Copyright 2020 Stand Blog Co.
-
-                            | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a>
+                            Copyright &copy; 2021 - <a rel="nofollow" href="https://bilgeadam.com" target="_parent"> Bilge Adam Akademi</a>
                         </p>
                     </div>
                 </div>
@@ -117,15 +117,15 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/template/vendor/jquery/jquery.min.js"></script>
+    <script src="~/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Additional Scripts -->
-    <script src="template/assets/js/custom.js"></script>
-    <script src="template/assets/js/owl.js"></script>
-    <script src="template/assets/js/slick.js"></script>
-    <script src="template/assets/js/isotope.js"></script>
-    <script src="template/assets/js/accordions.js"></script>
+    <script src="~/template/assets/js/custom.js"></script>
+    <script src="~/template/assets/js/owl.js"></script>
+    <script src="~/template/assets/js/slick.js"></script>
+    <script src="~/template/assets/js/isotope.js"></script>
+    <script src="~/template/assets/js/accordions.js"></script>
 
     <script language="text/Javascript">
         cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
